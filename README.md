@@ -75,9 +75,11 @@ analyses and crash/surge experiments need no API access.
 
 ## Running
 
-The study data itself is not public (see below), so the pipeline is runnable
-only with access to the data files described in `data/README.md`. With those
-in place:
+The study data itself is not public (see below), but
+[`data/README.md`](data/README.md) documents the full expected layout and
+file formats — where recordings and ASR transcripts go, the transcript TSV
+schema, and the label/feature CSV schemas — so you can run the pipeline on
+your own comparable data. With those files in place:
 
 ```bash
 # 1. Feature extraction (raw recordings → feature CSVs)
