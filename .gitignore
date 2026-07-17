@@ -1,0 +1,18 @@
+# Study data (human subjects) — never commit
+data/*
+!data/README.md
+
+# Generated outputs
+crash_surge/results/
+/figures/
+analysis/*.json
+analysis/*.csv
+analysis/*.txt
+analysis/*.pdf
+analysis/*.png
+
+# Environment / caches
+.env
+.venv/
+__pycache__/
+*.pyc

@@ -1,0 +1,34 @@
+[project]
+name = "relational-turning-points"
+version = "1.0.0"
+description = "Analysis code for: Memory-Driven Self-Disclosure and Relational Turning Points (ICMI '26)"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "statsmodels",
+    "scikit-learn",
+    "xgboost",
+    "matplotlib",
+    "semopy>=2.3.11",
+    "krippendorff>=0.8.2",
+    "openpyxl",
+    "tqdm",
+    "python-dotenv",
+    # LLM-based text annotation / validation
+    "openai",
+    "google-genai",
+    # audio features
+    "opensmile>=2.6.0",
+    "soundfile",
+    "torch",
+    "transformers>=4.40.2",
+    # video features
+    "opencv-python",
+    "mediapipe>=0.10.32",
+    # topic features
+    "fastopic",
+    "topmost",
+]
