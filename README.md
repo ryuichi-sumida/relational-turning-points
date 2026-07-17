@@ -73,13 +73,35 @@ file): `OPENAI_API_KEY` for `features/text.py` / `semantic_judge.py`, and
 `GEMINI_API_KEY` for `features/annotation_validation.py`. The statistical
 analyses and crash/surge experiments need no API access.
 
+## Expected data format
+
+The study data itself is not public (see below), but the pipeline runs on
+any comparable data arranged as follows (full schemas in
+[`data/README.md`](data/README.md)):
+
+```
+data/
+├── processed_videos/<pid>/          # one directory per participant
+│   ├── session_01.mp4                     # webcam recording (video + audio)
+│   ├── session_01_audio_only_16k_mono.wav # extracted audio, 16 kHz mono
+│   ├── session_01_transcript.tsv          # time-aligned ASR transcript
+│   └── ...                                # session_02 … session_10
+├── user_assessment_labels.csv      # post-session ratings: user_id, session,
+│                                   #   Q1–Q10 (7-pt Likert) + 5 construct means
+└── full_features_with_temporals.csv  # merged feature matrix, one row per
+                                       #   (participant, session)
+```
+
+Transcripts are tab-separated with columns `start_time`, `end_time`,
+`topic`, `speaker` (`user`/`system`), `text` — any ASR output mapped to
+those fields works. The `features/` extractors turn the recordings into
+per-modality feature CSVs, which are merged into
+`full_features_with_temporals.csv` for the `crash_surge/` experiments and
+`analysis/` scripts.
+
 ## Running
 
-The study data itself is not public (see below), but
-[`data/README.md`](data/README.md) documents the full expected layout and
-file formats — where recordings and ASR transcripts go, the transcript TSV
-schema, and the label/feature CSV schemas — so you can run the pipeline on
-your own comparable data. With those files in place:
+With the data files above in place:
 
 ```bash
 # 1. Feature extraction (raw recordings → feature CSVs)
