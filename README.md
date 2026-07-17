@@ -9,6 +9,8 @@ Analysis code for the ICMI '26 paper:
 > (ICMI '26), October 05–09, 2026, Napoli, Italy.* ACM.
 > https://doi.org/10.1145/3776574.3831135
 
+Preprint: [arXiv:2607.14593](https://arxiv.org/abs/2607.14593)
+
 We study how human-AI relationships develop over repeated interaction: 24
 participants talked with a memory-augmented conversational agent (InteLLA)
 across 10 daily sessions and rated five relational constructs after each
